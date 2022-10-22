@@ -28,12 +28,12 @@ public class TradeStatus {
     @Column(name="id", columnDefinition = "VARCHAR(255)", insertable = false, updatable = false, nullable = false)
     private UUID id;
 
-    @Column(nullable = false,name = "external_id")
-    private String external_id;
+    @Column(nullable = false,name = "external_id",unique = true)
+    private String externalId;
 
     @Type(type="uuid-char")
     @Column(name="ticker_pair_id", columnDefinition = "VARCHAR(255)", updatable = false, nullable = false)
-    private UUID ticker_pair_id;
+    private UUID tickerPairId;
 
     @Column(nullable = false,name = "order_status")
     @Enumerated(EnumType.STRING)
