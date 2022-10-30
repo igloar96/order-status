@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.byli</groupId>
-	<artifactId>order-routing</artifactId>
+	<artifactId>pendingOrder-routing</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>order-routing</name>
+	<name>pendingOrder-routing</name>
 	<description>Spring Boot microservice</description>
     <properties>
         <repackage.classifier/>
@@ -83,6 +83,11 @@
             <artifactId>already_broke_commons</artifactId>
             <version>1.2.7</version>
         </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+			<version>2.7.2</version>
+		</dependency>
     </dependencies>
 
 	<build>
