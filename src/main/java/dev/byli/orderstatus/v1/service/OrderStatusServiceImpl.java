@@ -13,9 +13,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class OrderStatusServiceImpl implements OrderStatusService {
@@ -38,12 +38,12 @@ public class OrderStatusServiceImpl implements OrderStatusService {
     @Autowired
     private OrderCache orderCache;
     @Override
-    @Transactional
-    @Scheduled(fixedDelay = 1000)
+    @Scheduled(fixedDelay = 1,timeUnit = TimeUnit.MINUTES)
     public void getOrderStatus() {
         this.tradeStatusRepository.findAllByStatusIn(Arrays.asList(OrderStatus.NEW, OrderStatus.PARTIALLY_FILLED)).forEach(pendingOrder -> {
             OrderStatus newStatus = this.orderStatus.getOrderStatus(pendingOrder.getExternalId());
             pendingOrder.setStatus(newStatus);
+            this.tradeStatusRepository.saveAndFlush(pendingOrder);
             try {
                 Order orderEvent = this.orderCache.order(pendingOrder.getExternalId());
                 orderEvent.setStatus(newStatus);
