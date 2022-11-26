@@ -1,20 +1,10 @@
-package dev.byli.orderstatus.v1.config;
-
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.client.RestTemplate;
+package dev.byli.orderstatus.utils;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-@Configuration
 public class DigitalSignature {
     final String HMAC_SHA256 = "HmacSHA256";
-
-    @Bean
-    public RestTemplate restTemplate(){
-        return new RestTemplate();
-    }
 
     //convert byte array to hex string
     private String bytesToHex(byte[] bytes) {

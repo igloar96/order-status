@@ -1,6 +1,5 @@
 package dev.byli.orderstatus.v1.config;
 
-import dev.byli.orderstatus.v1.exception.NotFoundException;
 import feign.FeignException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -39,15 +38,6 @@ public class ExceptionsHandler {
         });
         return errors;
     }
-
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(NotFoundException.class)
-    public Map<String, String> notFound(NotFoundException e){
-        Map<String, String> errors = new HashMap<>();
-        errors.put(ERROR_RESPONSE_CAUSE,e.getLocalizedMessage());
-        return errors;
-    }
-
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(EmptyResultDataAccessException.class)
