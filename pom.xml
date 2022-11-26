@@ -66,7 +66,7 @@
         <dependency>
             <groupId>com.github.igloar96</groupId>
             <artifactId>already_broke_commons</artifactId>
-            <version>1.2.7</version>
+            <version>1.2.8</version>
         </dependency>
     </dependencies>
 

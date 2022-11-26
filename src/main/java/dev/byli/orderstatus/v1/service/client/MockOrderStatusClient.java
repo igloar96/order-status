@@ -1,8 +1,8 @@
 package dev.byli.orderstatus.v1.service.client;
 
+import dev.byli.commons.Client;
 import dev.byli.commons.Order;
 import dev.byli.commons.OrderStatus;
-import dev.byli.orderstatus.v1.dto.Client;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

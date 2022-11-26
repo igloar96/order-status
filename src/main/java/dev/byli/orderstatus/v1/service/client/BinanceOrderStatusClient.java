@@ -1,9 +1,9 @@
 package dev.byli.orderstatus.v1.service.client;
 
+import dev.byli.commons.Client;
 import dev.byli.commons.Order;
 import dev.byli.orderstatus.utils.DigitalSignature;
 import dev.byli.orderstatus.v1.dto.BinanceOrderStatusResponse;
-import dev.byli.orderstatus.v1.dto.Client;
 import dev.byli.orderstatus.v1.service.adapter.OrderStatusAdapter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,8 @@
 package dev.byli.orderstatus.v1.controller;
 
+import dev.byli.commons.Client;
 import dev.byli.commons.Order;
 import dev.byli.commons.OrderStatus;
-import dev.byli.orderstatus.v1.dto.Client;
 import dev.byli.orderstatus.v1.service.OrderStatusService;
 import dev.byli.orderstatus.v1.service.adapter.OrderStatusAdapter;
 import dev.byli.orderstatus.v1.service.client.OrderStatusClient;
